@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		385560E1256B69690084D60F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385560E0256B69690084D60F /* main.swift */; };
+		38904B5D256CA7BD006BD220 /* CommandArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B5C256CA7BD006BD220 /* CommandArgument.swift */; };
+		38904B60256CB8AD006BD220 /* PurchaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */; };
+		38904B63256CBADB006BD220 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B62256CBADB006BD220 /* Purchase.swift */; };
+		38904B66256CBB99006BD220 /* PurchaseParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B65256CBB99006BD220 /* PurchaseParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,10 @@
 /* Begin PBXFileReference section */
 		385560DD256B69690084D60F /* TexasShop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TexasShop; sourceTree = BUILT_PRODUCTS_DIR; };
 		385560E0256B69690084D60F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		38904B5C256CA7BD006BD220 /* CommandArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandArgument.swift; sourceTree = "<group>"; };
+		38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRecord.swift; sourceTree = "<group>"; };
+		38904B62256CBADB006BD220 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		38904B65256CBB99006BD220 /* PurchaseParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 			isa = PBXGroup;
 			children = (
 				385560E0256B69690084D60F /* main.swift */,
+				38904B5C256CA7BD006BD220 /* CommandArgument.swift */,
+				38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */,
+				38904B62256CBADB006BD220 /* Purchase.swift */,
+				38904B65256CBB99006BD220 /* PurchaseParser.swift */,
 			);
 			path = TexasShop;
 			sourceTree = "<group>";
@@ -119,7 +131,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38904B63256CBADB006BD220 /* Purchase.swift in Sources */,
+				38904B66256CBB99006BD220 /* PurchaseParser.swift in Sources */,
+				38904B5D256CA7BD006BD220 /* CommandArgument.swift in Sources */,
 				385560E1256B69690084D60F /* main.swift in Sources */,
+				38904B60256CB8AD006BD220 /* PurchaseRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
