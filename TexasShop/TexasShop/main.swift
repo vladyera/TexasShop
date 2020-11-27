@@ -57,7 +57,7 @@ case .itemsSummary:
     print("Success 3")
 }
 
-guard let url = URL(string: "file:///Users/vladyera/TexasShop/README.md") else {
+guard let url = URL(string: "file:///Users/vladyera/Documents/GitHub/TexasShop/story.money.md") else {
     print("Error")
     exit(-2)
 }
