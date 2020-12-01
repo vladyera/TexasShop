@@ -63,5 +63,9 @@ guard let url = URL(string: "file:///Users/vladyera/Documents/GitHub/TexasShop/s
 }
 
 let purchaseParser: IPurchaseParser = PurchaseParser()
-let parsedData = purchaseParser.parseDocument(url)
-print(parsedData)
+do {
+    let parsedData = try purchaseParser.parseDocument(url)
+    print(parsedData)
+} catch let error as ParsingError{
+    print(error.errorDescription)
+}
