@@ -62,6 +62,6 @@ guard let url = URL(string: "file:///Users/vladyera/Documents/GitHub/TexasShop/s
     exit(-2)
 }
 
-var purchaseParser = PurchaseParser()
-
-purchaseParser.parseDocument(url)
+let purchaseParser: IPurchaseParser = PurchaseParser()
+let parsedData = purchaseParser.parseDocument(url)
+print(parsedData)

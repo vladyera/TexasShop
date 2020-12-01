@@ -5,15 +5,15 @@
 //  Created by Uladzislau Yerashevich on 11/23/20.
 //
 
-enum ItemKind {
-    case bread
-    case milk
-    case beer
-    case shotgun
-    case bullet
-    case cow
-    case cowboyHat
-    case bible
+enum ItemKind: String {
+    case bread = "Bread"
+    case milk = "Milk"
+    case beer = "Beer"
+    case shotgun = "Shotgun"
+    case bullet = "Bullet"
+    case cow = "Cow"
+    case cowboyHat = "CowboyHat"
+    case bible = "Bible"
 }
 
 struct PurchaseRecord {

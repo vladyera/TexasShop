@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol IPurchaseParser {
+protocol IPurchaseParser: AnyObject{
     func parseDocument(_ url: URL) -> [Purchase]
 }
 
-class PurchaseParser{
+final class PurchaseParser{
     private var dateFormatter: DateFormatter{
         let formatter = DateFormatter()
         formatter.dateFormat = "MM.dd.yyyy"
@@ -21,7 +21,6 @@ class PurchaseParser{
 
 extension PurchaseParser: IPurchaseParser {
     func parseDocument(_ url: URL) -> [Purchase] {
-        //Step 1: open file via provided URL
         let content: String
         do {
             try content = String(contentsOf: url)
@@ -29,32 +28,15 @@ extension PurchaseParser: IPurchaseParser {
             assertionFailure("Error: \(error.localizedDescription)")
             return []
         }
-        //Step 2: get content from the document (String)
-        //Step 3: divide content to make arrays
         let arrayFromFile = content.components(separatedBy: "#####\n").dropFirst()
-        print(arrayFromFile)
-        arrayFromFile.forEach { (element) in
-            let personName = self.personName(from: element)
-            let dateWithEndIndex = self.dateWithEndIndex(from: element)
+        return arrayFromFile.map { (purchaseString) in
+            let personName = self.personName(from: purchaseString)
+            let dateWithEndIndex = self.dateWithEndIndex(from: purchaseString)
             let date = dateWithEndIndex.date
             let dateEndIndex = dateWithEndIndex.endIndex
-            
-            let purchasesStartIndex = element.index(after: dateEndIndex)
-            let purchases = String(element[purchasesStartIndex..<element.endIndex])
-            let arrayOfPurchases = purchases
-                .components(separatedBy: "\n")
-                .filter{ !$0.isEmpty }
-            
-            arrayOfPurchases.forEach { (singleLine) in
-                let lineComponents = singleLine.components(separatedBy: ";")
-                let itemName = lineComponents[0]
-                let amount = Int(lineComponents[1])
-                let price = lineComponents[2]
-            }
+            let purchaseRecords = self.purchaseRecords(dateEndIndex: dateEndIndex, element: purchaseString)
+            return Purchase(date: date, personName: personName, itemRecords: purchaseRecords)
         }
-        //Step 4: convert each array to struct
-        //Step 5: return
-        return []
     }
 }
 
@@ -74,5 +56,22 @@ private extension PurchaseParser{
         let dateString = String(element[dateStartIndex..<dateEndIndex])
         let date = dateFormatter.date(from: dateString)!
         return (date, dateEndIndex)
+    }
+    
+    func purchaseRecords(dateEndIndex: String.Index, element: String) -> [PurchaseRecord] {
+        let purchasesStartIndex = element.index(after: dateEndIndex)
+        let purchases = String(element[purchasesStartIndex..<element.endIndex])
+        let arrayOfPurchases = purchases
+            .components(separatedBy: "\n")
+            .filter{ !$0.isEmpty }
+        
+        return arrayOfPurchases.map { (singleLine) in
+            let lineComponents = singleLine.components(separatedBy: ";")
+            let itemName = lineComponents[0]
+            let itemKind = ItemKind(rawValue: itemName)!
+            let amount = Int(lineComponents[1])!
+            let price = Double(lineComponents[2].dropFirst())!
+            return PurchaseRecord(itemKind: itemKind, amount: amount, pricePerItem: price)
+        }
     }
 }
