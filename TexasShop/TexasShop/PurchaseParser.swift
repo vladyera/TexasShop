@@ -9,14 +9,22 @@ import Foundation
 
 enum ParsingError: Error {
     case noDataFound
-    case notPossibleToConvert
+    case notPossibleToConvert(String)
     
     var errorDescription: String {
         switch self{
         case .noDataFound:
             return "There is no data in the file"
+        case .notPossibleToConvert(let context):
+            return context
+        }
+    }
+    var errorCode: Int {
+        switch self {
+        case .noDataFound:
+            return 1
         case .notPossibleToConvert:
-            return "This type can't be converted"
+            return 2
         }
     }
 }
@@ -56,11 +64,11 @@ extension PurchaseParser: IPurchaseParser {
 private extension PurchaseParser{
     func personName(from element: String) throws -> String {
         guard let personRanged = element.range(of: "Person: ") else {
-            throw ParsingError.notPossibleToConvert
+            throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – personRanged can't be created")
         }
         let personStartIndex = personRanged.upperBound
         guard let personEndIndex = element.firstIndex(of: "\n") else {
-            throw ParsingError.notPossibleToConvert
+            throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – personEndIndex can't be created")
         }
         let personName = String(element[personStartIndex..<personEndIndex])
         return personName
@@ -68,15 +76,15 @@ private extension PurchaseParser{
     
     func dateWithEndIndex(from element: String) throws -> (date: Date, endIndex: String.Index) {
         guard let dateRanged = element.range(of: "Date: ") else {
-            throw ParsingError.notPossibleToConvert
+            throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – dateRanged can't be created")
         }
         let dateStartIndex = dateRanged.upperBound
         guard let dateEndIndex = element[dateStartIndex..<element.endIndex].firstIndex(of: "\n") else {
-            throw ParsingError.notPossibleToConvert
+            throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – dateEndIndex can't be created")
         }
         let dateString = String(element[dateStartIndex..<dateEndIndex])
         guard let date = dateFormatter.date(from: dateString) else {
-            throw ParsingError.notPossibleToConvert
+            throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – date can't be created")
         }
         return (date, dateEndIndex)
     }
@@ -92,13 +100,13 @@ private extension PurchaseParser{
             let lineComponents = singleLine.components(separatedBy: ";")
             let itemName = lineComponents[0]
             guard let itemKind = ItemKind(rawValue: itemName) else {
-                throw ParsingError.notPossibleToConvert
+                throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – itemKind can't be created")
             }
             guard let amount = Int(lineComponents[1]) else {
-                throw ParsingError.notPossibleToConvert
+                throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – amount can't be created")
             }
             guard let price = Double(lineComponents[2].dropFirst()) else {
-                throw ParsingError.notPossibleToConvert
+                throw ParsingError.notPossibleToConvert("\(#file):\(#function):\(#line) – price can't be created")
             }
             return PurchaseRecord(itemKind: itemKind, amount: amount, pricePerItem: price)
         }
