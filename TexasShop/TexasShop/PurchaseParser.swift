@@ -8,13 +8,13 @@
 import Foundation
 
 enum ParsingError: Error {
-    case noDataFound
+    case noDataFound(String)
     case notPossibleToConvert(String)
     
     var errorDescription: String {
         switch self{
-        case .noDataFound:
-            return "There is no data in the file"
+        case .noDataFound(let context):
+            return context
         case .notPossibleToConvert(let context):
             return context
         }
@@ -47,7 +47,7 @@ extension PurchaseParser: IPurchaseParser {
         do {
             try content = String(contentsOf: url)
         } catch {
-            throw ParsingError.noDataFound
+            throw ParsingError.noDataFound("There is no data in parsed file")
         }
         let arrayFromFile = content.components(separatedBy: "#####\n").dropFirst()
         return try arrayFromFile.map { (purchaseString) in

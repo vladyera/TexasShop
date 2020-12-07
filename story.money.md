@@ -15,3 +15,7 @@ Cow;1;$1500
 Person: Dima
 Date: 10.11.2019
 Cow;1;$1500
+#####
+Person: Alex
+Date: 10.13.2020
+Beer;10;$40
