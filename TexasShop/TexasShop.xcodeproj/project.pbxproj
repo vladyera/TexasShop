@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		385560E1256B69690084D60F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385560E0256B69690084D60F /* main.swift */; };
+		3889C6742580804600A09072 /* IProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C6732580804600A09072 /* IProcessStrategy.swift */; };
+		3889C677258080CE00A09072 /* BuyersListProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C676258080CE00A09072 /* BuyersListProcessStrategy.swift */; };
+		3889C67B2580810700A09072 /* BuyersSummaryProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C67A2580810700A09072 /* BuyersSummaryProcessStrategy.swift */; };
+		3889C67E258083A300A09072 /* CommandProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C67D258083A300A09072 /* CommandProcessor.swift */; };
+		3889C6812580860800A09072 /* CommandProcessStrategyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C6802580860800A09072 /* CommandProcessStrategyFactory.swift */; };
+		3889C6842580885A00A09072 /* DefaultProcessStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3889C6832580885A00A09072 /* DefaultProcessStrategy.swift */; };
 		38904B5D256CA7BD006BD220 /* CommandArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B5C256CA7BD006BD220 /* CommandArgument.swift */; };
 		38904B60256CB8AD006BD220 /* PurchaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */; };
 		38904B63256CBADB006BD220 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38904B62256CBADB006BD220 /* Purchase.swift */; };
@@ -29,6 +35,12 @@
 /* Begin PBXFileReference section */
 		385560DD256B69690084D60F /* TexasShop */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TexasShop; sourceTree = BUILT_PRODUCTS_DIR; };
 		385560E0256B69690084D60F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3889C6732580804600A09072 /* IProcessStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IProcessStrategy.swift; sourceTree = "<group>"; };
+		3889C676258080CE00A09072 /* BuyersListProcessStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyersListProcessStrategy.swift; sourceTree = "<group>"; };
+		3889C67A2580810700A09072 /* BuyersSummaryProcessStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyersSummaryProcessStrategy.swift; sourceTree = "<group>"; };
+		3889C67D258083A300A09072 /* CommandProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProcessor.swift; sourceTree = "<group>"; };
+		3889C6802580860800A09072 /* CommandProcessStrategyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProcessStrategyFactory.swift; sourceTree = "<group>"; };
+		3889C6832580885A00A09072 /* DefaultProcessStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultProcessStrategy.swift; sourceTree = "<group>"; };
 		38904B5C256CA7BD006BD220 /* CommandArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandArgument.swift; sourceTree = "<group>"; };
 		38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRecord.swift; sourceTree = "<group>"; };
 		38904B62256CBADB006BD220 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
@@ -70,6 +82,12 @@
 				38904B5F256CB8AD006BD220 /* PurchaseRecord.swift */,
 				38904B62256CBADB006BD220 /* Purchase.swift */,
 				38904B65256CBB99006BD220 /* PurchaseParser.swift */,
+				3889C6732580804600A09072 /* IProcessStrategy.swift */,
+				3889C676258080CE00A09072 /* BuyersListProcessStrategy.swift */,
+				3889C67A2580810700A09072 /* BuyersSummaryProcessStrategy.swift */,
+				3889C67D258083A300A09072 /* CommandProcessor.swift */,
+				3889C6802580860800A09072 /* CommandProcessStrategyFactory.swift */,
+				3889C6832580885A00A09072 /* DefaultProcessStrategy.swift */,
 			);
 			path = TexasShop;
 			sourceTree = "<group>";
@@ -134,8 +152,14 @@
 				38904B63256CBADB006BD220 /* Purchase.swift in Sources */,
 				38904B66256CBB99006BD220 /* PurchaseParser.swift in Sources */,
 				38904B5D256CA7BD006BD220 /* CommandArgument.swift in Sources */,
+				3889C6842580885A00A09072 /* DefaultProcessStrategy.swift in Sources */,
+				3889C67B2580810700A09072 /* BuyersSummaryProcessStrategy.swift in Sources */,
+				3889C67E258083A300A09072 /* CommandProcessor.swift in Sources */,
 				385560E1256B69690084D60F /* main.swift in Sources */,
+				3889C6742580804600A09072 /* IProcessStrategy.swift in Sources */,
+				3889C6812580860800A09072 /* CommandProcessStrategyFactory.swift in Sources */,
 				38904B60256CB8AD006BD220 /* PurchaseRecord.swift in Sources */,
+				3889C677258080CE00A09072 /* BuyersListProcessStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

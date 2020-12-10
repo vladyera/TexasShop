@@ -6,14 +6,14 @@
 //
 
 enum ItemKind: String {
-    case bread = "Bread"
-    case milk = "Milk"
-    case beer = "Beer"
-    case shotgun = "Shotgun"
-    case bullet = "Bullet"
-    case cow = "Cow"
-    case cowboyHat = "CowboyHat"
-    case bible = "Bible"
+    case bread
+    case milk
+    case beer
+    case shotgun
+    case bullet
+    case cow
+    case cowboyHat
+    case bible
 }
 
 struct PurchaseRecord {
